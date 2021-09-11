@@ -1,8 +1,9 @@
 .navbar {
   border-radius: 4px;
 
+  padding: 10px;
   position: sticky;
-  top: 5px;
+  top: 10px;
 }
 
 #navbar-items {
@@ -29,8 +30,4 @@
   padding: 4px;
   border-radius: 4px;
   margin: 5px;
-}
-
-.logout-btn {
-  margin: 5px 20px;
 }

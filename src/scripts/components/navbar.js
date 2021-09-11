@@ -1,5 +1,5 @@
 import signOut from '../helpers/signOut';
-import languageFilter from './buttons/languageFilter';
+import displayCards from '../views.js/cardDisplay';
 
 const navBar = () => {
   const domString = `
@@ -19,7 +19,8 @@ const navBar = () => {
             <select id="sort-select">
               <option>Alphabetical</option>
               <option>Reverse Alphabetical</option>
-              <option>Time Submitted</option>
+              <option>Newest</option>
+              <option>Oldest</option>
             </select
           </li>
           <li class="nav-item">
@@ -32,7 +33,7 @@ const navBar = () => {
             </select>
           </li>
         </ul>
-        <button id="google-auth" class="btn btn-danger logout-btn">LOGOUT</button>
+        <i id="google-auth" class="basic-icon fas fa-sign-out-alt btn-danger"></i>
       </div>
     </nav>
   `;
@@ -40,7 +41,8 @@ const navBar = () => {
   document.querySelector('#header').innerHTML = domString;
 
   document.querySelector('#google-auth').addEventListener('click', signOut);
-  document.querySelector('#language-filter').addEventListener('change', languageFilter);
+  document.querySelector('#sort-select').addEventListener('change', displayCards);
+  document.querySelector('#language-filter').addEventListener('change', displayCards);
 };
 
 export default navBar;
