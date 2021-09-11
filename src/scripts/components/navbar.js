@@ -10,12 +10,22 @@ const navBar = () => {
       </button>
 
       <div class="collapse navbar-collapse" id="navbar-items">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-list">
           <li class="nav-item">
-            <a id="create-new-card" class="nav-link" href="#">New Entry</a>
+            <button id="create-new-card" class="btn btn-primary">New Entry</button>
           </li>
           <li class="nav-item">
+            Sort: 
+            <select id="sort-select">
+              <option>Alphabetical</option>
+              <option>Reverse Alphabetical</option>
+              <option>Time Submitted</option>
+            </select
+          </li>
+          <li class="nav-item">
+            Filter: 
             <select id="language-filter">
+              <option>None</option>
               <option>JavaScript</option>
               <option>HTML</option>
               <option>CSS</option>

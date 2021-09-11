@@ -4,6 +4,7 @@ import updateEntry from '../components/buttons/updateEntryButton';
 import displayCards from '../views.js/cardDisplay';
 import newCardForm from '../views.js/newCardForm';
 import updateCardSubmit from '../components/buttons/updateCardSubmit';
+import filterButton from '../components/buttons/filterButton';
 
 const handleClicks = (e) => {
   const [targetID, targetIndex] = e.target.id.split('--');
@@ -27,6 +28,10 @@ const handleClicks = (e) => {
     case 'update-card-submit-btn':
       e.preventDefault();
       updateCardSubmit(targetIndex);
+      break;
+
+    case 'language-filter-btn':
+      filterButton(targetIndex);
       break;
 
     case 'update-entry':

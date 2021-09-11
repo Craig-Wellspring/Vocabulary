@@ -5,9 +5,13 @@ const vocabCard = (vocabObj) => `
       <span id="language-filter-btn--${vocabObj.language}" class="btn btn-sm btn-dark">${vocabObj.language}</span>
     </div>
     <div class="card-body">
-      <p class="card-text">${vocabObj.definition}</p>
-      <hr>
-      <div class="card-time-submitted">Submitted: ${vocabObj.time_submitted}</div>
+      <div>
+        <p class="card-text">${vocabObj.definition}</p>
+      </div>
+      <div>
+        <hr>
+        <div class="card-time-submitted">Submitted: ${vocabObj.time_submitted}</div>
+      </div>
     </div>
     <div class="card-footer">
       <i class="card-privacy basic-icon fas fa-${vocabObj.isPrivate ? 'lock' : 'lock-open'}"></i>

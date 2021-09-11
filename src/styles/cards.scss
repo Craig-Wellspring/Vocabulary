@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .card-time-submitted {
   font-size: 9pt;
 }
