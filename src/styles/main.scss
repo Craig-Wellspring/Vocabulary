@@ -1,10 +1,31 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 
+#header {
+  text-align: right;
+  margin: 10px;
+}
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  margin: 0;
+  background-color: black;
+  color: white;
   text-align: center;
-  margin-top: 100px;
 }
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.basic-icon {
+  font-size: 18pt;
+  padding: 5px 8px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+@import 'navbar.scss';
+@import 'cards.scss';
+@import 'newCardForm.scss';

@@ -1,0 +1,26 @@
+.navbar {
+  border-radius: 4px;
+
+  position: sticky;
+  top: 5px;
+}
+
+#navbar-items {
+  justify-content: space-between;
+}
+
+#navbar-logo {
+  margin: 5px 20px;
+  color: whitesmoke;
+  font-size: 22pt;
+}
+
+#language-filter {
+  padding: 4px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.logout-btn {
+  margin: 5px 20px;
+}

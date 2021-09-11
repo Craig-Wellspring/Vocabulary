@@ -1,0 +1,14 @@
+#new-card-form {
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 4px;
+  margin: 10px;
+
+  text-align: left;
+}

@@ -1,0 +1,22 @@
+.vocab-card {
+  text-align: left;
+  margin: 10px;
+
+  color: black;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-time-submitted {
+  font-size: 9pt;
+}
+
+.card-footer {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+}
