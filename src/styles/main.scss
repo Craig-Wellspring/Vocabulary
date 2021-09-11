@@ -26,6 +26,11 @@ body {
   margin: 5px;
 }
 
+.error-text {
+  color: red;
+  font-weight: bold;
+}
+
 @import 'navbar.scss';
 @import 'cards.scss';
 @import 'newCardForm.scss';

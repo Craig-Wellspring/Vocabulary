@@ -9,13 +9,23 @@
   justify-content: space-between;
 }
 
+.navbar-list {
+  align-items: center;
+  column-gap: 20px;
+}
+
 #navbar-logo {
   margin: 5px 20px;
   color: whitesmoke;
   font-size: 22pt;
 }
 
-#language-filter {
+#create-new-card {
+  margin: 5px;
+}
+
+#language-filter,
+#sort-select {
   padding: 4px;
   border-radius: 4px;
   margin: 5px;

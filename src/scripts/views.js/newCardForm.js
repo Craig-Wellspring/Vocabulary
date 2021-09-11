@@ -25,6 +25,7 @@ const newCardForm = (vocabObj = {}) => {
         <input type="checkbox" class="form-check-input" id="private-check" ${vocabObj.isPrivate ? 'checked' : ''}>
         <label class="form-check-label" for="private-check">Private?</label>
       </div>
+      <div id="card-submit-error" class="error-text"></div>
       ${vocabObj.firebaseKey ? `<button type="submit" id="update-card-submit-btn--${vocabObj.firebaseKey}" class="btn btn-primary">Update</button>` : '<button type="submit" id="new-card-submit-btn" class="btn btn-success">Submit</button>'}
     </form>
   `;

@@ -7,14 +7,18 @@ const updateCardSubmit = (firebaseKey) => {
   const language = document.querySelector('#language-select').value;
   const isPrivate = document.querySelector('#private-check').checked;
 
-  const payload = {
-    title,
-    definition,
-    language,
-    isPrivate
-  };
-
-  updateVocabEntry(firebaseKey, payload).then(displayCards);
+  if (title && definition && language) {
+    const payload = {
+      title,
+      definition,
+      language,
+      isPrivate
+    };
+    const currentFilter = document.querySelector('#language-filter').value;
+    updateVocabEntry(firebaseKey, payload).then(() => displayCards(currentFilter));
+  } else {
+    document.querySelector('#card-submit-error').innerHTML = 'All fields required.';
+  }
 };
 
 export default updateCardSubmit;
