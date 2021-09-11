@@ -12,6 +12,7 @@ const handleClicks = (e) => {
   console.warn(`targetID: ${targetID} | targetIndex: ${targetIndex}`);
 
   switch (targetID) {
+    // Navbar Buttons
     case 'navbar-logo':
       displayCards();
       break;
@@ -20,6 +21,7 @@ const handleClicks = (e) => {
       newCardForm();
       break;
 
+    // Form buttons
     case 'new-card-submit-btn':
       e.preventDefault();
       submitNewCard();
@@ -30,6 +32,7 @@ const handleClicks = (e) => {
       updateCardSubmit(targetIndex);
       break;
 
+    // Card Buttons
     case 'language-filter-btn':
       filterButton(targetIndex);
       break;
