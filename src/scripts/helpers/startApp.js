@@ -3,11 +3,11 @@ import clearDOM from './clearDOM';
 import displayCards from '../views.js/cardDisplay';
 import clickEvents from './click-events';
 
-const startApp = () => {
+const startApp = (uid) => {
   clearDOM();
   navBar();
   clickEvents();
-  displayCards();
+  displayCards(uid);
 };
 
 export default startApp;

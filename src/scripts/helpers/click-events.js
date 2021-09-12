@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import submitNewCard from '../components/buttons/cardSubmitButton';
 import deleteEntry from '../components/buttons/deleteEntryButton';
 import updateEntry from '../components/buttons/updateEntryButton';
@@ -8,17 +9,22 @@ import filterButton from '../components/buttons/filterButton';
 
 const handleClicks = (e) => {
   const [targetID, targetIndex] = e.target.id.split('--');
+  const userID = firebase.auth().currentUser.uid;
 
   console.warn(`targetID: ${targetID} | targetIndex: ${targetIndex}`);
 
   switch (targetID) {
     // Navbar Buttons
     case 'navbar-logo':
-      displayCards();
+      displayCards(userID);
       break;
 
     case 'create-new-card':
       newCardForm();
+      break;
+
+    case 'community-btn':
+      displayCards();
       break;
 
     // Form buttons

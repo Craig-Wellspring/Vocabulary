@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import { updateVocabEntry } from '../../data/vocabData';
 import displayCards from '../../views.js/cardDisplay';
 
@@ -6,6 +7,7 @@ const updateCardSubmit = (firebaseKey) => {
   const definition = document.querySelector('#definition-input').value;
   const language = document.querySelector('#language-select').value;
   const isPrivate = document.querySelector('#private-check').checked;
+  const userID = firebase.auth().currentUser.uid;
 
   if (title && definition && language) {
     const payload = {
@@ -14,8 +16,7 @@ const updateCardSubmit = (firebaseKey) => {
       language,
       isPrivate
     };
-    const currentFilter = document.querySelector('#language-filter').value;
-    updateVocabEntry(firebaseKey, payload).then(() => displayCards(currentFilter));
+    updateVocabEntry(firebaseKey, payload).then(() => displayCards(userID));
   } else {
     document.querySelector('#card-submit-error').innerHTML = 'All fields required.';
   }
