@@ -7,7 +7,7 @@ const submitNewCard = () => {
   const definition = document.querySelector('#definition-input').value;
   const language = document.querySelector('#language-select').value;
   const isPrivate = document.querySelector('#private-check').checked;
-  const user = firebase.auth().currentUser;
+  const userID = firebase.auth().currentUser.uid;
 
   if (title && definition && language) {
     const newCardObj = {
@@ -16,15 +16,9 @@ const submitNewCard = () => {
       language,
       isPrivate,
       time_submitted: new Date().toUTCString(),
-      userID: user.uid
+      userID
     };
-    const currentFilter = document.querySelector('#language-filter');
-    if (currentFilter.value !== 'None') {
-      createVocabEntry(newCardObj).then(() => displayCards(language));
-      currentFilter.value = language;
-    } else {
-      createVocabEntry(newCardObj).then(() => displayCards());
-    }
+    createVocabEntry(newCardObj).then(() => displayCards(userID));
   } else {
     document.querySelector('#card-submit-error').innerHTML = 'All fields required.';
   }

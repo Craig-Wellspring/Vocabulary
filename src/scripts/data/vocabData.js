@@ -17,9 +17,9 @@ const getVocabEntry = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// Get vocabulary entries filtered by language
-const getVocabByLanguage = (language) => new Promise((resolve, reject) => {
-  axios.get(`${dbURL}/vocab.json?orderBy="language"&equalTo="${language}"`)
+// Get vocabulary entries filtered by user ID
+const getUserVocab = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/vocab.json?orderBy="userID"&equalTo="${uid}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
@@ -54,7 +54,7 @@ const updateVocabEntry = (firebaseKey, payload) => new Promise((resolve, reject)
 export {
   getAllVocab,
   getVocabEntry,
-  getVocabByLanguage,
+  getUserVocab,
   createVocabEntry,
   deleteVocabEntry,
   updateVocabEntry

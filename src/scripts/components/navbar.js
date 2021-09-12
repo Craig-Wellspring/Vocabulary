@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import signOut from '../helpers/signOut';
 import displayCards from '../views.js/cardDisplay';
 
@@ -32,6 +33,9 @@ const navBar = () => {
               <option>CSS</option>
             </select>
           </li>
+          <li class="nav-item">
+            <button id="community-btn" class="btn btn-primary"><i class="fas fa-atlas"></i> Community</button>
+          </li>
         </ul>
         <i id="google-auth" class="basic-icon fas fa-sign-out-alt btn-danger"></i>
       </div>
@@ -41,8 +45,10 @@ const navBar = () => {
   document.querySelector('#header').innerHTML = domString;
 
   document.querySelector('#google-auth').addEventListener('click', signOut);
-  document.querySelector('#sort-select').addEventListener('change', displayCards);
-  document.querySelector('#language-filter').addEventListener('change', displayCards);
+
+  const userID = firebase.auth().currentUser.uid;
+  document.querySelector('#sort-select').addEventListener('change', () => displayCards(userID));
+  document.querySelector('#language-filter').addEventListener('change', () => displayCards(userID));
 };
 
 export default navBar;
