@@ -1,13 +1,14 @@
-import firebase from 'firebase';
 import vocabCard from '../components/vocabCard';
 import { getAllVocab, getUserVocab } from '../data/vocabData';
 import sortCardArray from '../helpers/cardSorting';
+import clearSearch from '../helpers/clearSearch';
+import getUserID from '../helpers/getUser';
 import filterByLanguage from '../helpers/languageFiltering';
 
 const renderCards = (cardArray) => {
   let domString = '';
   const filteredArray = filterByLanguage(cardArray);
-  const userID = firebase.auth().currentUser.uid;
+  const userID = getUserID();
 
   if (filteredArray.length > 0) {
     sortCardArray(filteredArray).forEach((card) => { domString += vocabCard(card, userID); });
@@ -16,6 +17,8 @@ const renderCards = (cardArray) => {
   }
 
   document.querySelector('#app').innerHTML = domString;
+
+  clearSearch();
 };
 
 const displayCards = (uid = null) => {
@@ -26,4 +29,7 @@ const displayCards = (uid = null) => {
   }
 };
 
-export default displayCards;
+export {
+  renderCards,
+  displayCards
+};

@@ -1,11 +1,10 @@
-import firebase from 'firebase';
-import displayCards from '../../views.js/cardDisplay';
+import { displayCards } from '../../views/cardDisplay';
+import getUserID from '../../helpers/getUser';
 
 const filterButton = (language) => {
   document.querySelector('#language-filter').value = language;
-  const userID = firebase.auth().currentUser.uid;
 
-  displayCards(userID);
+  displayCards(getUserID());
 };
 
 export default filterButton;

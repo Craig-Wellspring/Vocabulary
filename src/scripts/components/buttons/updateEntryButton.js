@@ -1,5 +1,5 @@
 import { getVocabEntry } from '../../data/vocabData';
-import newCardForm from '../../views.js/newCardForm';
+import newCardForm from '../../views/newCardForm';
 
 const updateEntry = (firebaseKey) => {
   getVocabEntry(firebaseKey).then(newCardForm);

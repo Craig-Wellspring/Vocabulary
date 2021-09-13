@@ -1,13 +1,13 @@
-import firebase from 'firebase';
 import { createVocabEntry } from '../../data/vocabData';
-import displayCards from '../../views.js/cardDisplay';
+import getUserID from '../../helpers/getUser';
+import { displayCards } from '../../views/cardDisplay';
 
 const submitNewCard = () => {
   const title = document.querySelector('#title-input').value;
   const definition = document.querySelector('#definition-input').value;
   const language = document.querySelector('#language-select').value;
   const isPrivate = document.querySelector('#private-check').checked;
-  const userID = firebase.auth().currentUser.uid;
+  const userID = getUserID();
 
   if (title && definition && language) {
     const newCardObj = {

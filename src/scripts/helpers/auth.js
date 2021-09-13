@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../../api/apiKeys';
 import startApp from './startApp';
-import landingPage from '../views.js/landing';
+import landingPage from '../views/landing';
 
 const checkLoginStatus = () => {
   firebase.initializeApp(firebaseConfig);

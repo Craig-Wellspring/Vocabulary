@@ -1,6 +1,6 @@
-import firebase from 'firebase';
+import getUserID from '../helpers/getUser';
 import signOut from '../helpers/signOut';
-import displayCards from '../views.js/cardDisplay';
+import { displayCards } from '../views/cardDisplay';
 
 const navBar = () => {
   const domString = `
@@ -33,8 +33,22 @@ const navBar = () => {
               <option>CSS</option>
             </select>
           </li>
+          <li>
+            <div class="input-group" style="align-items: center">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-atlas" style="margin: 4px; margin-right: 8px;"></i>
+                  <input type="checkbox" id="community-search" aria-label="Show community entries">
+                </div>
+              </div>
+              <input type="text" id="search-input" class="form-control" aria-label="Text input with checkbox" placeholder="Search...">
+              <div class="input-group-append">
+                <span id="search-btn" class="input-group-text"><i id="search-btn" class="fas fa-search" style="margin: 4px;"></i></span>
+              </div>
+            </div>
+          </li>
           <li class="nav-item">
-            <button id="community-btn" class="btn btn-primary"><i class="fas fa-atlas"></i> Community</button>
+            <button id="community-btn" class="btn btn-primary" style="margin: 5px;"><i class="fas fa-atlas"></i> Community</button>
           </li>
         </ul>
         <i id="google-auth" class="basic-icon fas fa-sign-out-alt btn-danger"></i>
@@ -46,9 +60,8 @@ const navBar = () => {
 
   document.querySelector('#google-auth').addEventListener('click', signOut);
 
-  const userID = firebase.auth().currentUser.uid;
-  document.querySelector('#sort-select').addEventListener('change', () => displayCards(userID));
-  document.querySelector('#language-filter').addEventListener('change', () => displayCards(userID));
+  document.querySelector('#sort-select').addEventListener('change', () => displayCards(getUserID()));
+  document.querySelector('#language-filter').addEventListener('change', () => displayCards(getUserID()));
 };
 
 export default navBar;
